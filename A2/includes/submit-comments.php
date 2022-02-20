@@ -1,30 +1,19 @@
-<!-- <form>
-  <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" name="email-i" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="fullname-i" class="col-sm-2 col-form-label">Name</label>
-    <div class="col-sm-10">
-      <input type="text" name="fullname-i" class="form-control" id="fullname-i">
-    </div>
-  </div>
+<?php
 
-<div class="form-floating">
-  <textarea class="form-control" name="comments-i" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
-  <label for="floatingTextarea">Comments</label>
-</div>
+// (1) Sanitize form data input
+  	function sanitizeData2($inputData) {
+		$returnValue = trim($inputData);
+		$returnValue = htmlspecialchars($returnValue);
+		$returnValue = stripslashes($returnValue);
+		return $returnValue;
+	}
 
-  <button type="submit" class="btn btn-primary">Sign in</button>
-  <button type="submit" class="btn btn-primary">Clear</button>
-</form> -->
+?>
 
-<form method="get" class="nav-link" action="includes/submit-comments.php"> 
-			<label for="text-input">Login Form</label>
-			<input type="email" name="i-email">
-      <input type="password" name="i-password">
+<form method="get" class="nav-link" action="../includes/submit-comments.php"> 
+			<label for="text-input">Comments Form</label>
+			<input type="email" name="input-email">
+      <input type="text" name="input-fullname">
       <div class="form-floating">
   <textarea class="form-control" name="comments-i" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
   <label for="floatingTextarea">Comments</label>
@@ -34,16 +23,53 @@
       <button type="submit" class="btn btn-primary">Clear</button>
 </form>
 
+
 <?php
 
-// if (isset($_REQUEST['submit-comments'])) {
+$file_name = $_SERVER['PHP_SELF'];
 
-//   $email = sanitizeData($_REQUEST['i-email']);
-//   $password = sanitizeData($_REQUEST['i-password']);
-//   $comments = sanitizeData($_REQUEST['comments-i']);
+if (isset($_REQUEST['submit-comments'])) {
 
-  //we are not gonna deal with databases, we are
+  $fullname = sanitizeData2($_REQUEST['input-fullname']);
+  $email = sanitizeData2($_REQUEST['input-email']);
+  $comments = sanitizeData2($_REQUEST['comments-i']);
+}
 
+$fileH = fopen("../server/comments.txt", "w+"); 
+if(!$fileH){
+  die("File cannot be opened!"); 
+}
+
+
+//converting the form information into an associative array
+$array = array("file_name" => "$file_name" , "commenter_name" => "$fullname", "commenter_email" => "$email", "comment" => "$comments");
+
+//storing it in JSON format
+fwrite($fileH, json_encode($array));  
+
+
+rewind($fileH); 
+fclose($fileH);
+
+
+//my attempt at displaying and reloading the page after the form submission
+// if ($file_name == "/a2part2/elgamil/A2/articles/bad-motivator.php"){
+//   $file_name = "bad-motivator.php";
+// }
+// if ($file_name == "/a2part2/elgamil/A2/articles/wookies.php"){
+//   $file_name = "/wookies.php";
+// }
+// if ($file_name == "/a2part2/elgamil/A2/articles/main-reactor.php"){
+//   $file_name = "main-reactor.php";
+// }
+// if ($file_name == "/a2part2/elgamil/A2/articles/human-cyborg-comm.php"){
+//   $file_name = "human-cyborg-comm.php";
+// }
+
+// if (!filesize('../server/comments.txt') == 0){
+  
+//   echo "\n\nComments submitted by the User $comments";
+// }
 ?>
 
 

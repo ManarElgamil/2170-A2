@@ -2,7 +2,7 @@
 # Assignment 2
 
 Date Created: 16 FEB 2022
-Last Modification Date: 17 FEB 2022
+Last Modification Date: 19 FEB 2022
 
 ## Author(s)
 
@@ -16,12 +16,12 @@ Last Modification Date: 17 FEB 2022
 
 One paragraph description of the assignment work goes here.
 
-This assignment implements several forms and includes processing these forms in different ways, for example in the login form we use databases, while in the comments form, we use associative arrays and JSON to process this form. We also implement file redirection and flow between different webpages. We also implement responsive designs using bootstrap to produce a professional looking website. 
+This assignment implements several forms and  processes these forms in different ways, for example in the login form we use databases, while in the comments form, we use associative arrays and JSON to process this form without databases. We also implement file redirection and flow between different webpages. We also implement responsive designs using bootstrap to produce a professional looking website. 
 
 How I implemented this assignemnt (important):
 
-As you can see this assignment is incomplete, I was not able to finish implementing it due to my poor time-management skills. I, however, tried my best to implement most of the functionalities. But one the biggest obstacles I faced was file redirection. If you test this assignment from the index.php file you will see that the form-processing part of the assignment is implemented correctly, including the redirection and all, however I face a big problem when doing it from the other articles due to the different file path. I have tried to use functions to have a unified file path, but that produced several errors as you will see when you test this assignment. I also tried to implement the comments form, but I ran out of time, even though it technically uses the same method as the form-processing (since I stored it in an associative array and used JSON encode and JSON decode to bring the output.) I also tried to implemet bootstrap and make the website as responsive as possible, but I ran out of time for this part as well. Please be considerate when marking my assignment, Thank you!
-
+Used Bootstrap which resulted in making the website responsive and professional looking, all forms are implemented correctly, 
+successfully implemented file resusability by having one footer and one header for all the files, login form is implemented correctly and functionals correctly (Please make sure to implement the file paths specified correctly when marking), submit-comments form is implemented correctly and stores the stored the data submitted in an associative array and JSON format, but I was unable to reload the page to the same articles and I was also unable to display the comments with on the same page of the article they were submitted. I tried my best though (you can take a look at my commented out code, in the submit-comments.php file)
 
 ## Citations/Attributions
 
@@ -64,6 +64,6 @@ Date accessed: 17 Feb 2022
 		Date accessed: 18 Jan 2022
 
 8- Our team's TA Mahmoud Monjur helped me with the getting the name value from the associative array I created 
-  in the login form part (In the index.php). 
+  in the login form part (In the index.php file). 
 
 

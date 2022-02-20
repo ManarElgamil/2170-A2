@@ -1,17 +1,21 @@
 <?php
-	require_once "../includes/header.php";
+	 require_once "../includes/header.php";
 ?>
+
 	<!-- 
 		Content in this page is dummy content from ForcemIpsum.com
 		Author: Scotty G
 		URL: https://forcemipsum.com/
 		Date accessed: 18 Jan 2022
 	 -->
-	<main id="pg-main-content"class="container-fluid">
+	 <main id="pg-main-content"class="container-fluid">
 	<div class="row my-background">
 
 <!-- Using mx-auto to make the main centered, from bootstrap -->
 <div class="col-sm-8 mx-auto background pt-5">
+
+<div class="card mb-4">
+  <div class="card-body">
 		<article id="main-article">
 			<h2 class="h2">This droid has a bad motivator!</h2>
 			<a href="https://youtu.be/o-YBDTqX_ZU">See here for information about motivators for droids.</a>
@@ -21,6 +25,9 @@
 			<p>Yeah?This R2 unit has a bad motivator. Look! Hey, what're you trying to push on us? Excuse me, sir, but that R2 unit is in prime condition. A real bargain.</p>
 			<p>All right. Threepio! Come in, Threepio! Threepio! Get to the top! I can't Where could he be? Threepio! Threepio, will you come in? They aren't here! Something must have happened to them. See if they've been captured. Hurry! One thing's for sure.</p>
 		</article>
+  </div>
+</div>
+	
 
 		<hr>
 
@@ -29,12 +36,13 @@
 
 	<?php
       require_once "../includes/submit-comments.php";
+
     ?>
 		</section>
 	</main>
 	</div>
-	
 
-		<?php
-			require_once "../includes/footer.php";
-    ?>
+
+	<?php
+	 require_once "../includes/footer.php";
+?>
